@@ -20,7 +20,7 @@ export function ImmersiveLandingPage({ theme, onEnterStudio, onThemeChange, onGe
       <header className="fixed inset-x-0 top-0 z-40 px-4 py-4 sm:px-6">
         <div className="mx-auto grid max-w-[1500px] grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[1fr_auto_1fr]">
           <a className="flex w-fit items-center gap-3" href="#home" aria-label="UKU Motion home">
-            <img className="size-10 rounded-xl shadow-[0_8px_28px_rgba(0,0,0,.35)]" src="/favicon.svg" alt="" />
+            <img className="size-10 rounded-xl shadow-[0_8px_28px_rgba(0,0,0,.35)]" src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" />
             <div>
               <strong className="block text-sm font-bold tracking-[.14em]">UKU MOTION</strong>
               <span className={`hidden text-[8px] tracking-[.15em] sm:block ${light ? 'text-black/40' : 'text-white/40'}`}>GESTURE MUSIC STUDIO</span>
@@ -134,7 +134,7 @@ export function ImmersiveLandingPage({ theme, onEnterStudio, onThemeChange, onGe
       </section>
 
       <footer className={`border-t px-5 py-8 lg:px-8 ${light ? 'border-black/8 bg-[#f5f6f4]' : 'border-white/8 bg-[#080908]'}`}>
-        <div className={`mx-auto flex max-w-6xl items-center justify-between text-[10px] ${light ? 'text-black/40' : 'text-white/35'}`}><div className="flex items-center gap-2"><img className="size-6" src="/favicon.svg" alt="" /><span>© 2026 UKU MOTION</span></div><button className="font-bold text-[#ff7951]" type="button" onClick={onEnterStudio}>START PLAYING</button></div>
+        <div className={`mx-auto flex max-w-6xl items-center justify-between text-[10px] ${light ? 'text-black/40' : 'text-white/35'}`}><div className="flex items-center gap-2"><img className="size-6" src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" /><span>© 2026 UKU MOTION</span></div><button className="font-bold text-[#ff7951]" type="button" onClick={onEnterStudio}>START PLAYING</button></div>
       </footer>
     </main>
   )

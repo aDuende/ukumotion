@@ -105,7 +105,7 @@ export function InstrumentChooser({ theme, onThemeChange, onNavigate, onSelect }
 
       <header className="relative z-10 mx-auto grid max-w-7xl grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[1fr_auto_1fr]">
         <button className="flex w-fit items-center gap-3 text-left" type="button" onClick={() => onNavigate('home')} aria-label="UKU Motion home">
-          <img className="size-9 rounded-xl" src="/favicon.svg" alt="" />
+          <img className="size-9 rounded-xl" src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" />
           <div><strong className="block text-xs tracking-[.14em]">UKU MOTION</strong><span className={`text-[8px] tracking-[.14em] ${light ? 'text-black/35' : 'text-white/30'}`}>CHOOSE YOUR VOICE</span></div>
         </button>
 

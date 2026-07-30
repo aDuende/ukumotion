@@ -3,7 +3,7 @@ import type { Instrument } from './music'
 export type PitchedInstrument = Exclude<Instrument, 'drums'>
 export type DrumVoice = 'kick' | 'snare' | 'hihat' | 'tom-low' | 'tom-high' | 'crash'
 
-const SAMPLE_ROOT = '/samples'
+const SAMPLE_ROOT = `${import.meta.env.BASE_URL}samples`
 
 const MIDI: Record<string, number> = {
   C4: 60, D4: 62, E4: 64, F4: 65, G4: 67, A4: 69, Bb4: 70, B4: 71, C5: 72,

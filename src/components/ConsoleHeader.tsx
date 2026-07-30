@@ -27,7 +27,7 @@ export function ConsoleHeader({ theme, instrument, cameraActive, handCount, bpm,
         <ArrowLeft size={15} />
       </button>
       <div className="flex min-w-max items-center gap-3">
-        <img className="size-9" src="/favicon.svg" alt="UKU Motion" />
+        <img className="size-9" src={`${import.meta.env.BASE_URL}favicon.svg`} alt="UKU Motion" />
         <div>
           <strong className={`block text-sm font-bold tracking-[.12em] ${light ? 'text-[#191a18]' : 'text-white'}`}>UKU MOTION</strong>
           <span className={`block text-[9px] tracking-[.12em] ${light ? 'text-black/35' : 'text-white/30'}`}>GESTURE MUSIC STUDIO</span>
