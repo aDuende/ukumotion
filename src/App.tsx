@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { AboutPage } from './components/AboutPage'
 import { CameraStage } from './components/CameraStage'
 import { ChordPanel } from './components/ChordPanel'
 import { ConsoleHeader } from './components/ConsoleHeader'
@@ -13,7 +14,7 @@ import { useMotionInstrument } from './hooks/useMotionInstrument'
 import { GESTURES, SCORE, type Instrument } from './lib/music'
 
 function App() {
-  const [view, setView] = useState<'landing' | 'generator' | 'instruments' | 'courses' | 'studio'>('landing')
+  const [view, setView] = useState<'landing' | 'generator' | 'instruments' | 'courses' | 'about' | 'studio'>('landing')
   const [studioTheme, setStudioTheme] = useState<'dark' | 'light'>(() => localStorage.getItem('studio-theme') === 'light' ? 'light' : 'dark')
   const [settingsOpen, setSettingsOpen] = useState(false)
   const studio = useMotionInstrument()
@@ -35,6 +36,7 @@ function App() {
         onGenerateNotes={() => setView('generator')}
         onChooseInstrument={() => setView('instruments')}
         onCourses={() => setView('courses')}
+        onAbout={() => setView('about')}
       />
     )
   }
@@ -45,7 +47,7 @@ function App() {
       setView('studio')
     }
 
-    const navigateFromChooser = (section: 'home' | 'generator' | 'courses') => {
+    const navigateFromChooser = (section: 'home' | 'generator' | 'courses' | 'about') => {
       setView(section === 'home' ? 'landing' : section)
       window.scrollTo(0, 0)
     }
@@ -54,7 +56,7 @@ function App() {
   }
 
   if (view === 'generator') {
-    return <NoteGenerator theme={studioTheme} onThemeChange={toggleStudioTheme} onHome={() => setView('landing')} onChooseInstrument={() => setView('instruments')} onCourses={() => setView('courses')} />
+    return <NoteGenerator theme={studioTheme} onThemeChange={toggleStudioTheme} onHome={() => setView('landing')} onChooseInstrument={() => setView('instruments')} onCourses={() => setView('courses')} onAbout={() => setView('about')} />
   }
 
   if (view === 'courses') {
@@ -65,6 +67,20 @@ function App() {
         onHome={() => setView('landing')}
         onGenerateNotes={() => setView('generator')}
         onChooseInstrument={() => setView('instruments')}
+        onAbout={() => setView('about')}
+      />
+    )
+  }
+
+  if (view === 'about') {
+    return (
+      <AboutPage
+        theme={studioTheme}
+        onThemeChange={toggleStudioTheme}
+        onHome={() => setView('landing')}
+        onGenerateNotes={() => setView('generator')}
+        onChooseInstrument={() => setView('instruments')}
+        onCourses={() => setView('courses')}
       />
     )
   }

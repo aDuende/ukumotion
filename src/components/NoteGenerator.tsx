@@ -9,6 +9,7 @@ type Props = {
   onHome: () => void
   onChooseInstrument: () => void
   onCourses: () => void
+  onAbout: () => void
 }
 
 type Difficulty = 'Easy' | 'Intermediate' | 'Advanced'
@@ -21,7 +22,7 @@ const PATTERNS: Partial<Record<Instrument, string[]>> = {
 
 const GENERIC_PATTERN = ['| C4  E4  G4  E4 | A3  C4  E4  C4 |', '| F3  A3  C4  A3 | G3  B3  D4  B3 |']
 
-export function NoteGenerator({ theme, onThemeChange, onHome, onChooseInstrument, onCourses }: Props) {
+export function NoteGenerator({ theme, onThemeChange, onHome, onChooseInstrument, onCourses, onAbout }: Props) {
   const light = theme === 'light'
   const [source, setSource] = useState('')
   const [instrument, setInstrument] = useState<Instrument>('guitar')
@@ -50,6 +51,7 @@ export function NoteGenerator({ theme, onThemeChange, onHome, onChooseInstrument
           <span className={`rounded-full px-5 py-2.5 font-medium ${light ? 'bg-black/8 text-[#191a18]' : 'bg-white/14 text-white'}`}>Generate Notes</span>
           <button className={`rounded-full px-5 py-2.5 transition ${light ? 'hover:bg-black/6 hover:text-black' : 'hover:bg-white/8 hover:text-white'}`} type="button" onClick={onChooseInstrument}>Instruments</button>
           <button className={`rounded-full px-5 py-2.5 transition ${light ? 'hover:bg-black/6 hover:text-black' : 'hover:bg-white/8 hover:text-white'}`} type="button" onClick={onCourses}>Courses</button>
+          <button className={`rounded-full px-5 py-2.5 transition ${light ? 'hover:bg-black/6 hover:text-black' : 'hover:bg-white/8 hover:text-white'}`} type="button" onClick={onAbout}>About</button>
         </nav>
         <div className="ml-auto flex items-center gap-3"><span className={`hidden text-[9px] tracking-[.16em] sm:block ${light ? 'text-black/30' : 'text-white/25'}`}>AI ARRANGER · BETA</span><ThemeToggle theme={theme} onToggle={onThemeChange} /></div>
       </header>

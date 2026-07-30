@@ -8,11 +8,12 @@ type Props = {
   onGenerateNotes: () => void
   onChooseInstrument: () => void
   onCourses: () => void
+  onAbout: () => void
 }
 
 const bars = [18, 26, 34, 45, 31, 54, 68, 42, 76, 58, 88, 64, 48, 82, 96, 72, 55, 91, 78, 62, 46, 70, 84, 58, 38, 66, 52, 44, 30, 22]
 
-export function ImmersiveLandingPage({ theme, onEnterStudio, onThemeChange, onGenerateNotes, onChooseInstrument, onCourses }: Props) {
+export function ImmersiveLandingPage({ theme, onEnterStudio, onThemeChange, onGenerateNotes, onChooseInstrument, onCourses, onAbout }: Props) {
   const light = theme === 'light'
   return (
     <main className={`min-h-svh transition-colors ${light ? 'bg-[#f5f6f4] text-[#191a18]' : 'bg-[#080908] text-white'}`}>
@@ -31,6 +32,7 @@ export function ImmersiveLandingPage({ theme, onEnterStudio, onThemeChange, onGe
             <button className={`rounded-full px-5 py-2.5 transition ${light ? 'hover:bg-black/6 hover:text-black' : 'hover:bg-white/8 hover:text-white'}`} type="button" onClick={onGenerateNotes}>Generate Notes</button>
             <button className={`rounded-full px-5 py-2.5 transition ${light ? 'hover:bg-black/6 hover:text-black' : 'hover:bg-white/8 hover:text-white'}`} type="button" onClick={onChooseInstrument}>Instruments</button>
             <button className={`rounded-full px-5 py-2.5 transition ${light ? 'hover:bg-black/6 hover:text-black' : 'hover:bg-white/8 hover:text-white'}`} type="button" onClick={onCourses}>Courses</button>
+            <button className={`rounded-full px-5 py-2.5 transition ${light ? 'hover:bg-black/6 hover:text-black' : 'hover:bg-white/8 hover:text-white'}`} type="button" onClick={onAbout}>About</button>
           </nav>
 
           <div className="ml-auto flex items-center gap-2">

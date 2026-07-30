@@ -26,6 +26,7 @@ type Props = {
   onHome: () => void
   onGenerateNotes: () => void
   onChooseInstrument: () => void
+  onAbout: () => void
 }
 
 type Family = 'Strings' | 'Keys' | 'Wind'
@@ -228,7 +229,7 @@ function CourseRow({
   )
 }
 
-export function CoursePage({ theme, onThemeChange, onHome, onGenerateNotes, onChooseInstrument }: Props) {
+export function CoursePage({ theme, onThemeChange, onHome, onGenerateNotes, onChooseInstrument, onAbout }: Props) {
   const light = theme === 'light'
   return (
     <main className={`relative min-h-svh overflow-hidden px-5 py-6 transition-colors lg:px-8 ${light ? 'bg-[#f5f6f4] text-[#191a18]' : 'bg-[#080908] text-white'}`}>
@@ -247,6 +248,7 @@ export function CoursePage({ theme, onThemeChange, onHome, onGenerateNotes, onCh
           <button className={`rounded-full px-5 py-2.5 transition ${light ? 'hover:bg-black/6 hover:text-black' : 'hover:bg-white/8 hover:text-white'}`} type="button" onClick={onGenerateNotes}>Generate Notes</button>
           <button className={`rounded-full px-5 py-2.5 transition ${light ? 'hover:bg-black/6 hover:text-black' : 'hover:bg-white/8 hover:text-white'}`} type="button" onClick={onChooseInstrument}>Instruments</button>
           <span className={`rounded-full px-5 py-2.5 font-medium ${light ? 'bg-black/8 text-[#191a18]' : 'bg-white/14 text-white'}`}>Courses</span>
+          <button className={`rounded-full px-5 py-2.5 transition ${light ? 'hover:bg-black/6 hover:text-black' : 'hover:bg-white/8 hover:text-white'}`} type="button" onClick={onAbout}>About</button>
         </nav>
 
         <div className="ml-auto flex items-center gap-3"><span className={`hidden text-[9px] tracking-[.16em] sm:block ${light ? 'text-black/30' : 'text-white/25'}`}>ONLINE COURSES</span><ThemeToggle theme={theme} onToggle={onThemeChange} /></div>

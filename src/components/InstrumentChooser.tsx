@@ -6,7 +6,7 @@ import { ThemeToggle } from './ThemeToggle'
 type Props = {
   theme: 'dark' | 'light'
   onThemeChange: () => void
-  onNavigate: (section: 'home' | 'generator' | 'courses') => void
+  onNavigate: (section: 'home' | 'generator' | 'courses' | 'about') => void
   onSelect: (instrument: Instrument) => void
 }
 
@@ -114,6 +114,7 @@ export function InstrumentChooser({ theme, onThemeChange, onNavigate, onSelect }
           <button className={`rounded-full px-5 py-2.5 transition ${light ? 'hover:bg-black/6 hover:text-black' : 'hover:bg-white/8 hover:text-white'}`} type="button" onClick={() => onNavigate('generator')}>Generate Notes</button>
           <span className={`rounded-full px-5 py-2.5 font-medium ${light ? 'bg-black/8 text-[#191a18]' : 'bg-white/14 text-white'}`}>Instruments</span>
           <button className={`rounded-full px-5 py-2.5 transition ${light ? 'hover:bg-black/6 hover:text-black' : 'hover:bg-white/8 hover:text-white'}`} type="button" onClick={() => onNavigate('courses')}>Courses</button>
+          <button className={`rounded-full px-5 py-2.5 transition ${light ? 'hover:bg-black/6 hover:text-black' : 'hover:bg-white/8 hover:text-white'}`} type="button" onClick={() => onNavigate('about')}>About</button>
         </nav>
 
         <div className="ml-auto flex items-center gap-3"><span className={`hidden text-[9px] tracking-[.16em] sm:block ${light ? 'text-black/30' : 'text-white/25'}`}>STEP 01 / 02</span><ThemeToggle theme={theme} onToggle={onThemeChange} /></div>
