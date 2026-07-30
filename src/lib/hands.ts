@@ -18,11 +18,16 @@ export const CONNECTIONS = [
 
 export function fingerCount(hand: Landmark[]) {
   if (hand.length < 21) return 0
-  let count = 0
-  for (const [tip, joint] of [[8, 6], [12, 10], [16, 14], [20, 18]]) {
-    if (hand[tip].y < hand[joint].y - 0.025) count += 1
-  }
+  const extended = [[8, 6], [12, 10], [16, 14], [20, 18]].map(
+    ([tip, joint]) => hand[tip].y < hand[joint].y - 0.025,
+  )
+  const [index, middle, ring, pinky] = extended
   const thumbTip = Math.hypot(hand[4].x - hand[0].x, hand[4].y - hand[0].y)
   const thumbJoint = Math.hypot(hand[3].x - hand[0].x, hand[3].y - hand[0].y)
-  return thumbTip > thumbJoint + 0.035 ? count + 1 : count
+  const thumb = thumbTip > thumbJoint + 0.035
+
+  // Shaka / "hang loose" sign (thumb + pinky only) maps to 6
+  if (thumb && pinky && !index && !middle && !ring) return 6
+
+  return extended.filter(Boolean).length + (thumb ? 1 : 0)
 }
