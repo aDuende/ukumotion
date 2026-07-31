@@ -118,7 +118,7 @@ function CoursePlayer({ item, light, onBack }: { item: CourseItem; light: boolea
             {videoId ? (
               <iframe
                 className="absolute inset-0 size-full"
-                src={`https://www.youtube.com/embed/${videoId}?rel=0`}
+                src={`https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1`}
                 title={item.title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
